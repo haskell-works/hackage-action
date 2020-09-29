@@ -1,0 +1,24 @@
+name: Haskell hackage
+description: Hackage utility
+inputs:
+  args:
+    description: 'Arguments to hackage'
+    required: true
+branding:
+  icon: archive
+  color: green
+runs:
+  using: "composite"
+  steps: 
+    - env:
+        CI_TEMP: ${{runner.temp}}
+      run: |
+        ls
+      shell: bash
+    - run: |
+        echo pwd
+        pwd
+        echo ls
+        ls
+        echo hackage ${{ inputs.args }}
+      shell: bash
